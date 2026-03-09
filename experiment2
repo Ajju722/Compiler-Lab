@@ -1,4 +1,4 @@
-#Write a C program to recognize strings under 'a','a*b+','abb'.
+#Write a python program to recognize strings under 'a','a*b+','abb'.
 
 
 import re
