@@ -2,28 +2,42 @@
 
 
 
+
 operators = {
-    '+', '-', '*', '/', '%',          
+    '+', '-', '*', '/', '%',
     '++', '--',
     '==', '!=', '>', '<', '>=', '<=',
-    '&&', '||', '!',                 
+    '&&', '||', '!',
     '=', '+=', '-=', '*=', '/=', '%='
 }
 
+def lexical_analyzer(expression):
+    found_operators = []
+    i = 0
 
-def validate_operator(op):
-    if op in operators:
-        return True
-    return False
+    while i < len(expression):
+
+        if i+1 < len(expression) and expression[i:i+2] in operators:
+            found_operators.append(expression[i:i+2])
+            i += 2
+   
+        elif expression[i] in operators:
+            found_operators.append(expression[i])
+            i += 1
+        else:
+            i += 1
+
+    return found_operators
 
 
-def main():
-    op = input("Enter an operator: ")
 
-    if validate_operator(op):
-        print(f"{op} is a valid operator.")
-    else:
-        print(f"{op} is NOT a valid operator.")
+expr = input("Enter an expression: ")
 
-if __name__ == "__main__":
-    main()
+ops = lexical_analyzer(expr)
+
+if ops:
+    print("Operators found in the expression:")
+    for op in ops:
+        print(op)
+else:
+    print("No valid operators found.")
