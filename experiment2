@@ -1,0 +1,24 @@
+#Write a C program to recognize strings under 'a','a*b+','abb'.
+
+
+import re
+
+
+patterns = {
+    "a": r"^a$",
+    "a*b+": r"^a*b+$",
+    "abb": r"^abb$"
+}
+
+def recognize_string(s):
+    for name, pattern in patterns.items():
+        if re.match(pattern, s):
+            return f"String '{s}' matches pattern: {name}"
+    return f"String '{s}' does not match any pattern"
+
+
+s = input("Enter a string: ")
+
+
+result = recognize_string(s)
+print(result)
