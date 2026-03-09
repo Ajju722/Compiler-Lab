@@ -1,0 +1,29 @@
+#Write a python program to simulate lexical analyzer for validating operators.
+
+
+
+operators = {
+    '+', '-', '*', '/', '%',          
+    '++', '--',
+    '==', '!=', '>', '<', '>=', '<=',
+    '&&', '||', '!',                 
+    '=', '+=', '-=', '*=', '/=', '%='
+}
+
+
+def validate_operator(op):
+    if op in operators:
+        return True
+    return False
+
+
+def main():
+    op = input("Enter an operator: ")
+
+    if validate_operator(op):
+        print(f"{op} is a valid operator.")
+    else:
+        print(f"{op} is NOT a valid operator.")
+
+if __name__ == "__main__":
+    main()
